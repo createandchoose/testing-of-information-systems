@@ -19,7 +19,7 @@ const { title, } = music;
 const getAllRels = await getAllRel();
 
 const seo = {
-  title: `Группа ${title}`,
+  title: 'asd',
   description: 'as',
 }
 ---
@@ -108,7 +108,18 @@ const seo = {
 
                 </div>
                 <div id="w-node-_932d2677-0544-0771-3519-962dbc05f149-ca9d863e" class="flex vertical-mbp gap-16px">
-                
+                    <!-- <div data-w-id="eeec6a21-7ff1-1c06-4ec8-81f509a7af77" class="display-inline-block"><a href="#" class="btn-secondary w-button"><span class="dashly-custom-icon link-icon-left rotate-180deg"></span>Upload file</a>
+                        <div style="opacity: 0;" class="popup-wrapper">
+                            <div class="popup popup-icon-top" style="transform: translate3d(0px, 0px, 0px) scale3d(0.6, 0.6, 1.01) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg); transform-style: preserve-3d;"><img src="../6260849a6eab2a733e282630/6262b7725cabe019a03a4dfa_success-message-popup-icon-dashboardly-webflow-template.svg" loading="eager" alt="" class="popup-top-icon">
+                                <div class="display-4 mg-bottom-8px">Your file has been uploaded<br></div>
+                                <div class="mg-bottom-16px">Sit in tincidunt semper vestibulum semper etiam sedol elit id in fermentum quam blandit quis amet.</div><a id="w-node-eeec6a21-7ff1-1c06-4ec8-81f509a7af81-ca9d863e" data-w-id="eeec6a21-7ff1-1c06-4ec8-81f509a7af81"
+                                    href="#" class="btn-secondary w-button">Dismiss</a>
+                                <div data-w-id="eeec6a21-7ff1-1c06-4ec8-81f509a7af83" class="close-button-popup-module"></div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    
                     <div data-w-id="d1b55e49-7d13-d87c-452b-0464c1760e5d" class="display-inline-block"><a id="w-node-d1b55e49-7d13-d87c-452b-0464c1760e5e-ca9d863e" href={music.downloadmp3} class="btn-primary w-button"><span class="line-rounded-icon link-icon-left"><i class='bx bx-upload' ></i></span>Отправить работу</a>
                     </div>
                 </div>
@@ -138,6 +149,9 @@ const seo = {
                         <div class="dashly-custom-icon table-sort-icon"><i class='bx bx-caret-down'></i></div>
                     </div>
                 </div>
+
+                <!-- <MusicList music={getAllRels}/> -->
+
 
 
                 {music.tracklist.map((track) => {
@@ -187,6 +201,7 @@ const seo = {
                       </div>
                   </div>
               </div>
+
                     );
                   } else {
                     return (
@@ -211,4 +226,3 @@ const seo = {
 </div>
 
 </Layout>
-

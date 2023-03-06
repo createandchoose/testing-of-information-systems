@@ -1,26 +1,75 @@
 ---
 import Layout from '../layouts/Dashboard.astro';
-import SanityPortableText from '../components/SanityPortableText.astro'
-import { getSanityImageURL, formatBlogPostDate, formatMusicPerv } from '../utils/helpers.js'
 import { getAllRelinner } from '../lib/api.js';
 import { getAllRel } from '../lib/api.js';
-import CldImage from '../components/CldImage.astro';
+import MusicList from '../components/MusicList.astro';
+import { getSanityImageURL, formatBlogPostDate } from '../utils/helpers.js'
 export interface Props {
   music: any;
   innerText: any;
 }
 
-const art = await getAllRel();
-const { slug } = Astro.params;
-const music = art.find((art) => art.slug.current === slug);
-if (!music) return Astro.redirect("/404");
-const { title, } = music;
+// const art = await getAllRel();
+// const { slug } = Astro.params;
+// const arts = art.find((art) => art.slug.current === slug);
+// if (!arts) return Astro.redirect("/404");
+// const { music, title, downloadmp3 } = arts;
 
-const getAllRels = await getAllRel();
+
+export async function getStaticPaths() {
+  const musics = await getAllRelinner();
+  const paths = musics.map((music) => ({
+    params: { slug: music.slug.current },
+  }));
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const music = await getAllRel(params.slug);
+  return { props: { music } };
+}
+
+const { music } = Astro.props;
+
+
+
+// export async function getStaticPaths() {
+//     const allBlogPosts = await getAllRel();
+//     return allBlogPosts.map((music: any) => ({
+//         params: { slug: music.slug.current },
+//         props: { music, },
+//     }));
+// }
+
+// const { music } = Astro.props;
+
+// const { music, innerText } = Astro.props;
+// const blogPostBody = await convertBlockContentToMarkdown(post.bodyRaw);
+// export async function getStaticPaths() {
+//   const allMusicInfo = await getAllRel();
+//   return allMusicInfo.map(music => ({ params: { slug: music.slug.current }, props: { music } }));
+// }
+
+// export async function getStaticProps({ params }) {
+//   const { slug } = params;
+//   const music = await getAllRels().find((m) => m.slug.current === slug);
+
+//   if (!music) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   return {
+//     props: {
+//       music,
+//     },
+//   };
+// }
 
 const seo = {
-  title: `Группа ${title}`,
-  description: 'as',
+  title: 'as',
+  description: 's' ,
 }
 ---
 <Layout seo={seo}>
@@ -31,11 +80,12 @@ const seo = {
                 <div class="mg-right-24px">
                     <div class="text-400 medium color-neutral-800">
 
-
-                    <div class="color-neutral-800">
-                        Группа {music.title}
+                      {getAllRels.map((music) =>
+                      
+                      <div class="color-neutral-800">
+                      {music.title}
                     </div>
-                  </div>
+                    )}</div>
       
       
                 </div>
@@ -44,7 +94,7 @@ const seo = {
             <div class="dashboard-nav-right-content">
 
 
-                <!-- <div data-hover="true" data-w-id="b5a11493-9e48-7ef8-19ef-456f41cdbd81" class="dropdown-wrapper w-dropdown" data-delay="0">
+                <div data-hover="true" data-w-id="b5a11493-9e48-7ef8-19ef-456f41cdbd81" class="dropdown-wrapper w-dropdown" data-delay="0">
                     <div class="dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-8" aria-controls="w-dropdown-list-8" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><img src="./img/dashboard.png" loading="eager" alt="John Carter - Dashly X Webflow Template" class="avatar-circle _02 mg-right-8px">
                         <div class="hidden-on-mbl">
                             <div class="mg-bottom-4px">
@@ -86,10 +136,7 @@ const seo = {
                             </div>
                         </div>
                     </nav>
-                </div> -->
-                <div style="height: 42px"></div>
-
-
+                </div>
             </div>
         </div>
     </div>
@@ -100,17 +147,30 @@ const seo = {
             <div class="grid-2-columns">
                 <div id="w-node-_91243996-f3e7-6212-7e17-a5f0993fd94e-ca9d863e" class="flex align-center children-wrap">
                     <div class="text-400 medium">Группы</div>
-                    <div class="line-rounded-icon breadcrumb-divider"><i class='bx bx-chevron-right' style="line-height: 50px;"></i></div>
-                    <div class="text-400 bold color-neutral-800"><a class="text-400 medium color-neutral-800" style="text-decoration: none;" href={`${music.slug.current}`}>
-                        {music.title}
-                      </a></div>
+                    <div class="line-rounded-icon breadcrumb-divider"><i class='bx bx-chevron-right'></i></div>
+                    <div class="text-400 bold color-neutral-800">{getAllRels.map((music) =><a class="text-400 medium color-neutral-800" style="text-decoration: none;" href={`${music.slug.current}`}>
+                                      {music.title}
+                      </a>
+                      )}</div>
 
 
                 </div>
                 <div id="w-node-_932d2677-0544-0771-3519-962dbc05f149-ca9d863e" class="flex vertical-mbp gap-16px">
-                
+                    <!-- <div data-w-id="eeec6a21-7ff1-1c06-4ec8-81f509a7af77" class="display-inline-block"><a href="#" class="btn-secondary w-button"><span class="dashly-custom-icon link-icon-left rotate-180deg"></span>Upload file</a>
+                        <div style="opacity: 0;" class="popup-wrapper">
+                            <div class="popup popup-icon-top" style="transform: translate3d(0px, 0px, 0px) scale3d(0.6, 0.6, 1.01) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg); transform-style: preserve-3d;"><img src="../6260849a6eab2a733e282630/6262b7725cabe019a03a4dfa_success-message-popup-icon-dashboardly-webflow-template.svg" loading="eager" alt="" class="popup-top-icon">
+                                <div class="display-4 mg-bottom-8px">Your file has been uploaded<br></div>
+                                <div class="mg-bottom-16px">Sit in tincidunt semper vestibulum semper etiam sedol elit id in fermentum quam blandit quis amet.</div><a id="w-node-eeec6a21-7ff1-1c06-4ec8-81f509a7af81-ca9d863e" data-w-id="eeec6a21-7ff1-1c06-4ec8-81f509a7af81"
+                                    href="#" class="btn-secondary w-button">Dismiss</a>
+                                <div data-w-id="eeec6a21-7ff1-1c06-4ec8-81f509a7af83" class="close-button-popup-module"></div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    {getAllRels.map((music) =>
                     <div data-w-id="d1b55e49-7d13-d87c-452b-0464c1760e5d" class="display-inline-block"><a id="w-node-d1b55e49-7d13-d87c-452b-0464c1760e5e-ca9d863e" href={music.downloadmp3} class="btn-primary w-button"><span class="line-rounded-icon link-icon-left"><i class='bx bx-upload' ></i></span>Отправить работу</a>
                     </div>
+                    )}
                 </div>
             </div>
         </div>
@@ -138,6 +198,9 @@ const seo = {
                         <div class="dashly-custom-icon table-sort-icon"><i class='bx bx-caret-down'></i></div>
                     </div>
                 </div>
+
+                <!-- <MusicList music={getAllRels}/> -->
+
 
 
                 {music.tracklist.map((track) => {
@@ -187,6 +250,7 @@ const seo = {
                       </div>
                   </div>
               </div>
+
                     );
                   } else {
                     return (
@@ -210,5 +274,10 @@ const seo = {
     </div>
 </div>
 
+
 </Layout>
 
+
+<style>
+
+</style>

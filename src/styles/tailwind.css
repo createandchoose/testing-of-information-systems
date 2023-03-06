@@ -35034,7 +35034,8 @@ figcaption {
     }
 }
 
-@font-face {
+
+/* @font-face {
     font-family: 'Social Icons Font';
     src: url('../6260849a6eab2a19f92826a0_social-icon-font-1.woff2') format('woff2'), url('../6260849a6eab2a333d282692_social-icon-font-1.eot') format('embedded-opentype'), url('../6260849a6eab2aee6928268e_social-icon-font-1.woff') format('woff'), url('../6260849a6eab2a7dc928269e_social-icon-font-1.ttf') format('truetype'), url('../6260849a6eab2a856f282686_social-icon-font-1.svg') format('svg');
     font-weight: 400;
@@ -35072,4 +35073,4 @@ figcaption {
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-}
+} */

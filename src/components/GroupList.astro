@@ -1,0 +1,12 @@
+---
+import GroupSidebar from "./GroupSidebar.astro";
+import { getAllRel } from '../lib/api.js';
+const getAllRels = await getAllRel();
+---
+
+<div class="relises">
+  {getAllRels.map((music) =>
+    <GroupSidebar music={music} />)}
+</div>
+
+

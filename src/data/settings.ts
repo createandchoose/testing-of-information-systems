@@ -20,6 +20,11 @@ export const settings = {
 // dH7-Bc6-Sxj-2HR
 
 
+// cloudf
+// tisinfo@ro.ru
+// dGmQMD!1
+
+
 // storj
 // tisinfo@ro.ru
 // tisinfo@ro.ru

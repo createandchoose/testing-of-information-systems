@@ -1,0 +1,25 @@
+---
+import { formatMusicPerv } from '../utils/helpers'
+import { getSanityImageURL, formatBlogPostDate } from '../utils/helpers.js'
+export interface Props {
+  music: any;
+}
+  
+const { music } = Astro.props;
+---
+
+<a href={`${music.slug.current}`}>
+<ul role="list" class="sidebar-nav-menu-list">
+    <li class="sidebar-nav-list-item">
+        <div data-hover="false" data-delay="0" data-w-id="e3b5855f-6277-057e-9411-47b56ea7155d" class="dropdown-wrapper sidebar-dropdown w-dropdown">
+            <div class="dropdown-toggle sidebar-dropdown w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0" style="color: rgb(48, 51, 80);">
+                <div class="sidebar-dropdown-text-container">
+                    <div class="dashly-custom-icon sidebar-link-icon" style="color: rgb(48, 51, 80);"><i class='bx bx-group' ></i></div>
+                    <div class="sidebar-dropdown-text" style="color: rgb(48, 51, 80);">{music.title}</div>
+                </div>
+                <div class="line-rounded-icon sidebar-dropdown-arrow" style="color: rgb(48, 51, 80); transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg); transform-style: preserve-3d;"><i class="bx bx-chevron-right"></i></div>
+            </div>
+        </div>
+    </li>
+</ul>
+</a>
