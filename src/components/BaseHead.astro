@@ -1,0 +1,109 @@
+---
+import {settings} from "../data/settings";
+import '../styles/tailwind.css';
+import '../styles/tailwind.output.css';
+// import '../styles/tailwind.css';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	canonicalURL?: URL | string;
+	image?: string;
+}
+
+const title = Astro.props.title || settings.title;
+const description = Astro.props.description || settings.description;
+const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Astro.site);
+const image = new URL(Astro.props.image || 'https://res.cloudinary.com/dzrynvom0/image/upload/v1674589724/social_hrxob1.png', Astro.site);
+---
+
+<meta charset="utf-8" />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/svg" href="/favicon.svg" />
+<!-- Primary Meta Tags -->
+<title>{title || settings.title} | ТИС</title>
+<meta name="title" content={title || settings.title} />
+
+<meta name="keywords" content="">
+
+<meta name="description" content={description || settings.description} />
+<meta name="generator" content={Astro.generator} />
+<!-- settingsmap -->
+<link rel="sitemap" href="/sitemap.xml">
+<!-- robots -->
+<meta name="robots" content="index, follow">
+<!-- RSS -->
+<!-- <link rel="alternate" type="application/rss+xml" title={`${settings.name} Blog`} href={`${settings.url}/feed/blog.xml`}/> -->
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL}>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+<!-- <script
+src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+defer
+></script> -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+/>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+defer
+></script>
+
+<script
+src="https://link.storjshare.io/s/jxjdo422fyxgk2eeirxuf3j2ss2a/files/init-alpine.js?download=1"
+></script>
+<script
+src="https://link.storjshare.io/s/jxrl7fzg4w7d26odz3lflgfftn5a/files/charts-pie.js?download=1"
+defer></script>
+<script
+src="https://link.storjshare.io/s/juyosdhaeh44u7c53efg2a7zsxla/files/charts-lines.js?download=1"
+defer></script>
+
+
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<script src="./js/webfont-1.js" type="text/javascript"></script>
+<script type="text/javascript">
+	WebFont.load({
+		google: {
+			families: ["Inter:regular,500,700"]
+		}
+	});
+</script>
+
+
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+
+
+<!-- <script is:inline src=".../js/init-alpine.js"></script>
+<script is:inline src=".../js/charts-lines.js" defer></script>
+<script is:inline src=".../js/charts-pie.js" defer></script> -->
