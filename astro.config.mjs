@@ -9,7 +9,7 @@ import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://thefoxxstuff-net.pages.dev',
+    site: 'https://svfutis.pages.dev',
     integrations: [mdx(), sitemap(), sanity({
         projectId: '2xd7irb9',
         dataset: 'production',
