@@ -13,17 +13,13 @@ export const settings = {
 // Контрольный вопрос:
 // пушкин
 
-
-
 // sanity
 // tisinfo@ro.ru
 // dH7-Bc6-Sxj-2HR
 
-
 // cloudf
 // tisinfo@ro.ru
 // dGmQMD!1
-
 
 // storj
 // tisinfo@ro.ru
